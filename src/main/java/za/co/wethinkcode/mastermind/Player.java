@@ -36,7 +36,7 @@ public class Player {
      * @return (boolean) : True if valid 4 digit string with numbers between 1-8
      * , otherwise False
      */
-    private static boolean isValidNumber(String input){
+    public static boolean isValidNumber(String input){
         boolean valid = input.matches("[1-8]+") && input.length() == 4;
         if (!valid){
             System.out.println("Please enter exactly 4 digits (each from 1 to 8).");
