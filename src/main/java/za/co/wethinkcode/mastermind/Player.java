@@ -46,13 +46,17 @@ public class Player {
      * Checks to see if the player has no more turns left
      * @return (boolean) : True if the player has run out of turns
      */
-    public boolean isOutOfTurns(){return turns <= 0;}
+    public boolean isOutOfTurns(){return turns == 0;}
 
 
     /**
-     * De-Increments the players turn counter.
+     * De-Increments the players turn counter. And prints the result
      */
-    public void useTurn(){if (!this.isOutOfTurns()) turns--;}
+    public void useTurn(){
+        if (turns > 0) turns--;
+        if (!this.isOutOfTurns()) System.out.println("Turns left: " + turns); 
+        else System.out.println("No more turns left.");
+    }
 
 
     /**
