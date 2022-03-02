@@ -1,5 +1,6 @@
 package za.co.wethinkcode.mastermind;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -72,7 +73,30 @@ public class PlayerTest {
     }
     
 
-    
+    @Test
+    void testGetTurns(){
+        Player p = new Player();
+        assertEquals(12, p.getTurns());
+    }
 
+
+    @Test
+    void testUseTurn(){
+        Player p = new Player();
+        p.useTurn();
+        assertEquals(11, p.getTurns());
+    }
+    
+    @Test
+    void testIsOutOfTurns(){
+        Player p = new Player();
+        for (int i = 0; i < 12; i++){
+            assertEquals(12-i, p.getTurns());
+            assertFalse(p.isOutOfTurns());
+            p.useTurn();
+        }  
+        assertTrue(p.isOutOfTurns());
+    }
+    
     
 }

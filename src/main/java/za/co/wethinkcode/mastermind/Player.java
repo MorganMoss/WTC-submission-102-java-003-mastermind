@@ -10,6 +10,10 @@ public class Player {
      * The scanner for input stream given
      */
     private final Scanner inputScanner;
+    /**
+     * The number of guesses remaining
+     */
+    private int turns;
 
 
     /**
@@ -17,6 +21,7 @@ public class Player {
      */
     public Player(){
         this.inputScanner = new Scanner(System.in);
+        turns = 12;
     }
 
     
@@ -26,7 +31,28 @@ public class Player {
      */
     public Player(InputStream inputStream){
         this.inputScanner = new Scanner(inputStream);
+        turns = 12;
     }
+
+
+    /**
+     * Getter for amount of turns left
+     * @return (int) : The amount of times this player can still guess
+     */
+    public int getTurns(){return turns;}
+
+
+    /**
+     * Checks to see if the player has no more turns left
+     * @return (boolean) : True if the player has run out of turns
+     */
+    public boolean isOutOfTurns(){return turns <= 0;}
+
+
+    /**
+     * De-Increments the players turn counter.
+     */
+    public void useTurn(){if (!this.isOutOfTurns()) turns--;}
 
 
     /**
@@ -68,4 +94,6 @@ public class Player {
         return isValidNumber(input) || playerWantsToQuit(input) ?
             input : this.getGuess();
     }
+
+
 }
