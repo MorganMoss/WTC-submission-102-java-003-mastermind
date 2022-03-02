@@ -22,13 +22,13 @@ public class Mastermind {
      * @param code : the guess
      * @return (int) : the number of matching numbers between the two codes
      */
-    public int compareCode(String code){
+    public int compareCode(String input){
         int matches = 0;
         int contains = 0;
 
         for (int i = 0; i < 4; i++){
-            if (this.code.charAt(i) == code.charAt(i)) matches++;
-            if (this.code.contains(""+code.charAt(i))) contains++;
+            if (code.charAt(i) == input.charAt(i)) matches++;
+            if (code.contains(""+input.charAt(i))) contains++;
         }
         
         contains -= matches;
@@ -44,8 +44,8 @@ public class Mastermind {
      * @param code : the guess
      * @return (boolean) : True if the codes match, otherwise False
      */
-    public boolean matchesCode(String code){
-        if (this.compareCode(code) == 4){
+    public boolean matchesCode(String input){
+        if (this.compareCode(input) == 4){
             System.out.println("Congratulations! You are a codebreaker!");
             return true;
         }

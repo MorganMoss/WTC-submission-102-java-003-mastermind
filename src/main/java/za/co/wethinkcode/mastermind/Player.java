@@ -98,6 +98,4 @@ public class Player {
         return isValidNumber(input) || playerWantsToQuit(input) ?
             input : this.getGuess();
     }
-
-
 }
